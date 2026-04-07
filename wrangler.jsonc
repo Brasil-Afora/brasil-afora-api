@@ -1,0 +1,7 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "brasil-afora-api",
+  "main": "src/app.ts",
+  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_date": "2026-04-01"
+}

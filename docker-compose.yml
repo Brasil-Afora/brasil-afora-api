@@ -1,0 +1,15 @@
+services:
+  brasil-afora-pg:
+    image: postgres:18
+    restart: unless-stopped
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=api
+    volumes:
+      - pgdata:/var/lib/postgresql/18/docker
+
+volumes:
+  pgdata:

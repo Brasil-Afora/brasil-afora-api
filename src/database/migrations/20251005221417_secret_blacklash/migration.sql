@@ -1,0 +1,1 @@
+ALTER TABLE "college_list" RENAME TO "college_lists";
