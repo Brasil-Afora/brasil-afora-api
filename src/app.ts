@@ -28,7 +28,13 @@ app.use(
         return
       }
 
-      if (allowedOrigins.includes("*") || allowedOrigins.includes(origin)) {
+      // Handle wildcard - allow all origins but without credentials
+      if (allowedOrigins.includes("*")) {
+        return "*"
+      }
+
+      // For specific origins, allow with credentials
+      if (allowedOrigins.includes(origin)) {
         return origin
       }
 

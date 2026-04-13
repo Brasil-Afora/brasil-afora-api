@@ -9,7 +9,7 @@ const envSchema = z.object({
   PORT: z.coerce.number().default(3333),
   CORS_ORIGIN: z
     .string()
-    .default("*")
+    .default("http://localhost:3000")
     .transform((val) => val.split(",")),
   GOOGLE_CLIENT_ID: z.string(),
   GOOGLE_CLIENT_SECRET: z.string(),
