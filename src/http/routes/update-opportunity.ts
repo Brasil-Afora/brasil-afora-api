@@ -1,6 +1,6 @@
+import { Hono } from "hono"
 import { updateOpportunity as updateOpportunityFunction } from "@/functions/update-opportunity"
 import { authMiddleware } from "@/http/middleware/auth"
-import { Hono } from "hono"
 
 export const updateOpportunity = new Hono().put(
   "/opportunities/:id",

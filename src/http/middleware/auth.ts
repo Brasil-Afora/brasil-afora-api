@@ -1,5 +1,5 @@
-import { auth } from "@/lib/auth"
 import type { MiddlewareHandler } from "hono"
+import { auth } from "@/lib/auth"
 
 declare module "hono" {
   // biome-ignore lint: Hono module augmentation relies on interface merging.

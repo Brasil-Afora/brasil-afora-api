@@ -1,6 +1,6 @@
+import { Hono } from "hono"
 import { createOpportunity as createOpportunityFunction } from "@/functions/create-opportunity"
 import { authMiddleware } from "@/http/middleware/auth"
-import { Hono } from "hono"
 
 export const createOpportunity = new Hono().post(
   "/opportunities",

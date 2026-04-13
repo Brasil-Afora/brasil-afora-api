@@ -1,3 +1,5 @@
+import { Hono } from "hono"
+import { cors } from "hono/cors"
 import { addFavoriteNationalOpportunity } from "@/http/routes/add-favorite-national-opportunity"
 import { addFavoriteOpportunity } from "@/http/routes/add-favorite-opportunity"
 import { createNationalOpportunity } from "@/http/routes/create-national-opportunity"
@@ -14,8 +16,6 @@ import { updateNationalOpportunity } from "@/http/routes/update-national-opportu
 import { updateOpportunity } from "@/http/routes/update-opportunity"
 import { auth } from "@/lib/auth"
 import { env } from "@/lib/env"
-import { Hono } from "hono"
-import { cors } from "hono/cors"
 
 const app = new Hono()
 const allowedOrigins = env.CORS_ORIGIN

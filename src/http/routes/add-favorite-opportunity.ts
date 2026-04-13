@@ -1,6 +1,6 @@
+import { Hono } from "hono"
 import { addFavoriteOpportunity as addFavoriteOpportunityFunction } from "@/functions/add-favorite-opportunity"
 import { authMiddleware } from "@/http/middleware/auth"
-import { Hono } from "hono"
 
 export const addFavoriteOpportunity = new Hono().post(
   "/opportunities/:id/favorite",

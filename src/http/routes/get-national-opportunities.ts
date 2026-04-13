@@ -1,5 +1,5 @@
-import { getNationalOpportunities as getNationalOpportunitiesFunction } from "@/functions/get-national-opportunities"
 import { Hono } from "hono"
+import { getNationalOpportunities as getNationalOpportunitiesFunction } from "@/functions/get-national-opportunities"
 
 export const getNationalOpportunities = new Hono().get(
   "/national-opportunities",

@@ -1,26 +1,13 @@
 /** biome-ignore-all lint/suspicious/noConsole: Seed requires logs */
 
-import db from "@/database/client"
-import { collegeLists } from "@/database/schema/college-lists"
-import {
-  nationalOpportunities,
-  opportunities,
-} from "@/database/schema/opportunities"
 import { faker } from "@faker-js/faker"
+import db from "@/database/client"
+import { nationalOpportunities } from "@/database/schema/national-opportunities"
+import { opportunities } from "@/database/schema/opportunities"
 
-const COLLEGE_LIST_COUNT = 20
 const OPPORTUNITY_COUNT = 20
 const NATIONAL_OPPORTUNITY_COUNT = 20
 
-const SETTINGS = ["Urban", "Suburban", "Rural"] as const
-const APPLICATION_PLATFORMS = [
-  "Common App",
-  "Coalition App",
-  "Common App / Coalition App",
-  "UC Application",
-  "OUAC",
-  "Institution Portal",
-] as const
 const OPPORTUNITY_TYPES = [
   "Scholarship",
   "Exchange",
@@ -43,98 +30,10 @@ const SCHOLARSHIP_TYPES = [
   "Need-based scholarship",
   "Full or partial scholarship",
 ] as const
-const MAJORS = [
-  "Computer Science",
-  "Electrical Engineering",
-  "Mechanical Engineering",
-  "Business Administration",
-  "Economics",
-  "Political Science",
-  "Biology",
-  "Mathematics",
-  "Physics",
-  "Psychology",
-  "History",
-  "Philosophy",
-  "Chemistry",
-  "Civil Engineering",
-  "Architecture",
-  "Law",
-  "Medicine",
-  "Nursing",
-  "Education",
-  "Sociology",
-] as const
 
 // ---------------------------------------------------------------------------
 // Generators
 // ---------------------------------------------------------------------------
-
-function generateCollegeList(): typeof collegeLists.$inferInsert {
-  const satLow = faker.number.int({ min: 1200, max: 1500 })
-  const satHigh = satLow + faker.number.int({ min: 40, max: 120 })
-  const actLow = faker.number.int({ min: 24, max: 34 })
-  const actHigh = actLow + faker.number.int({ min: 1, max: 4 })
-  const acronym = faker.helpers
-    .multiple(() => faker.string.alpha({ length: 1, casing: "upper" }), {
-      count: faker.number.int({ min: 2, max: 5 }),
-    })
-    .join("")
-
-  return {
-    name: `${faker.company.name()} University`,
-    acronym,
-    officialLink: faker.internet.url(),
-    state: faker.location.state(),
-    city: faker.location.city(),
-    setting: faker.helpers.arrayElement(SETTINGS),
-    nationalRanking: faker.number.int({ min: 1, max: 500 }),
-    acceptanceRate: faker.number.float({ min: 2, max: 80, fractionDigits: 1 }),
-    satRange: `${satLow}-${satHigh}`,
-    actRange: `${actLow}-${actHigh}`,
-    graduationRate4Years: faker.number.float({
-      min: 40,
-      max: 98,
-      fractionDigits: 1,
-    }),
-    medianSalary6Years: faker.number.int({ min: 35_000, max: 120_000 }),
-    tuition: faker.number.int({ min: 10_000, max: 70_000 }),
-    roomBoard: faker.number.int({ min: 8000, max: 25_000 }),
-    averageCostAfterAid: faker.number.int({ min: 5000, max: 45_000 }),
-    averageNeedBasedAidPackage: faker.number.int({ min: 5000, max: 65_000 }),
-    financialPolicy: faker.lorem.sentence(),
-    proficiencyTests: faker.helpers.arrayElement([
-      "TOEFL (min 80) or IELTS (min 6.5)",
-      "TOEFL (min 90) or IELTS (min 7.0)",
-      "TOEFL (min 100) or IELTS (min 7.0)",
-      "TOEFL (min 100) or IELTS (min 7.5)",
-    ]),
-    totalStudents: faker.number.int({ min: 2000, max: 100_000 }),
-    internationalPercentage: faker.number.float({
-      min: 1,
-      max: 30,
-      fractionDigits: 1,
-    }),
-    mainMajors: faker.helpers
-      .arrayElements(MAJORS, faker.number.int({ min: 4, max: 6 }))
-      .join(", "),
-    applicationFee: faker.number.int({ min: 0, max: 150 }),
-    applicationPlatform: faker.helpers.arrayElement(APPLICATION_PLATFORMS),
-    applicationTypes: faker.helpers
-      .arrayElements(
-        [
-          "Early Action",
-          "Early Decision I",
-          "Early Decision II",
-          "Restrictive Early Action",
-          "Regular Decision",
-        ],
-        faker.number.int({ min: 1, max: 3 })
-      )
-      .join(", "),
-    contact: faker.internet.email(),
-  }
-}
 
 function generateOpportunity(): typeof opportunities.$inferInsert {
   const deadline = faker.date.future({ years: 2 })
@@ -277,9 +176,6 @@ function generateNationalOpportunity(): typeof nationalOpportunities.$inferInser
 // ---------------------------------------------------------------------------
 
 async function seed() {
-  const collegeListsData = faker.helpers.multiple(generateCollegeList, {
-    count: COLLEGE_LIST_COUNT,
-  })
   const opportunitiesData = faker.helpers.multiple(generateOpportunity, {
     count: OPPORTUNITY_COUNT,
   })
@@ -289,10 +185,6 @@ async function seed() {
       count: NATIONAL_OPPORTUNITY_COUNT,
     }
   )
-
-  console.log("Seeding college lists…")
-  await db.insert(collegeLists).values(collegeListsData)
-  console.log(`Inserted ${collegeListsData.length} college list entries.`)
 
   console.log("Seeding opportunities…")
   await db.insert(opportunities).values(opportunitiesData)

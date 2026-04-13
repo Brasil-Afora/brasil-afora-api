@@ -1,6 +1,6 @@
+import { Hono } from "hono"
 import { deleteNationalOpportunity as deleteNationalOpportunityFunction } from "@/functions/delete-national-opportunity"
 import { authMiddleware } from "@/http/middleware/auth"
-import { Hono } from "hono"
 
 export const deleteNationalOpportunity = new Hono().delete(
   "/opportunities/:id",

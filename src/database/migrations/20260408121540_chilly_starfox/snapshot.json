@@ -2,9 +2,7 @@
   "version": "8",
   "dialect": "postgres",
   "id": "dedcdb43-5b50-4aad-bce9-13ef46898942",
-  "prevIds": [
-    "67b513d4-7383-4585-afb3-0a8c9ea66fed"
-  ],
+  "prevIds": ["67b513d4-7383-4585-afb3-0a8c9ea66fed"],
   "ddl": [
     {
       "isRlsEnabled": false,
@@ -1278,14 +1276,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "user_id"
-      ],
+      "columns": ["user_id"],
       "schemaTo": "public",
       "tableTo": "users",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "NO ACTION",
       "onDelete": "NO ACTION",
       "name": "favorite_opportunities_user_id_users_id_fkey",
@@ -1295,14 +1289,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "opportunity_id"
-      ],
+      "columns": ["opportunity_id"],
       "schemaTo": "public",
       "tableTo": "opportunities",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "NO ACTION",
       "onDelete": "NO ACTION",
       "name": "favorite_opportunities_opportunity_id_opportunities_id_fkey",
@@ -1312,14 +1302,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "user_id"
-      ],
+      "columns": ["user_id"],
       "schemaTo": "public",
       "tableTo": "users",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "NO ACTION",
       "onDelete": "NO ACTION",
       "name": "favorite_national_opportunities_user_id_users_id_fkey",
@@ -1329,14 +1315,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "national_opportunity_id"
-      ],
+      "columns": ["national_opportunity_id"],
       "schemaTo": "public",
       "tableTo": "national_opportunities",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "NO ACTION",
       "onDelete": "NO ACTION",
       "name": "favorite_national_opportunities_W3MsJe4BLntX_fkey",
@@ -1346,14 +1328,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "user_id"
-      ],
+      "columns": ["user_id"],
       "schemaTo": "public",
       "tableTo": "users",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "NO ACTION",
       "onDelete": "CASCADE",
       "name": "sessions_user_id_users_id_fk",
@@ -1363,14 +1341,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "user_id"
-      ],
+      "columns": ["user_id"],
       "schemaTo": "public",
       "tableTo": "users",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "NO ACTION",
       "onDelete": "CASCADE",
       "name": "accounts_user_id_users_id_fk",
@@ -1379,10 +1353,7 @@
       "table": "accounts"
     },
     {
-      "columns": [
-        "user_id",
-        "opportunity_id"
-      ],
+      "columns": ["user_id", "opportunity_id"],
       "nameExplicit": false,
       "name": "favorite_opportunities_pkey",
       "entityType": "pks",
@@ -1390,10 +1361,7 @@
       "table": "favorite_opportunities"
     },
     {
-      "columns": [
-        "user_id",
-        "national_opportunity_id"
-      ],
+      "columns": ["user_id", "national_opportunity_id"],
       "nameExplicit": false,
       "name": "favorite_national_opportunities_pkey",
       "entityType": "pks",
@@ -1401,9 +1369,7 @@
       "table": "favorite_national_opportunities"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "sessions_pkey",
       "schema": "public",
@@ -1411,9 +1377,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "users_pkey",
       "schema": "public",
@@ -1421,9 +1385,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "opportunities_pkey",
       "schema": "public",
@@ -1431,9 +1393,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "accounts_pkey",
       "schema": "public",
@@ -1441,9 +1401,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "verifications_pkey",
       "schema": "public",
@@ -1451,9 +1409,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "national_opportunities_pkey",
       "schema": "public",
@@ -1462,9 +1418,7 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "token"
-      ],
+      "columns": ["token"],
       "nullsNotDistinct": false,
       "name": "sessions_token_unique",
       "schema": "public",
@@ -1473,9 +1427,7 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "email"
-      ],
+      "columns": ["email"],
       "nullsNotDistinct": false,
       "name": "users_email_unique",
       "schema": "public",

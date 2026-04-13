@@ -1,7 +1,7 @@
-import { nationalOpportunities } from "@/database/schema/national-opportunities"
-import { users } from "@/database/schema/users"
 import { defineRelations } from "drizzle-orm"
 import { pgTable, primaryKey, timestamp, uuid } from "drizzle-orm/pg-core"
+import { nationalOpportunities } from "@/database/schema/national-opportunities"
+import { users } from "@/database/schema/users"
 
 export const favoriteNationalOpportunities = pgTable(
   "favorite_national_opportunities",

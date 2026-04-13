@@ -1,6 +1,6 @@
+import { Hono } from "hono"
 import { getFavoriteNationalOpportunities as getFavoriteNationalOpportunitiesFunction } from "@/functions/get-favorite-national-opportunities"
 import { authMiddleware } from "@/http/middleware/auth"
-import { Hono } from "hono"
 
 export const getFavoriteNationalOpportunities = new Hono().get(
   "/national-opportunities/favorites",

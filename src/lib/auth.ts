@@ -1,12 +1,12 @@
+import { betterAuth } from "better-auth"
+import { drizzleAdapter } from "better-auth/adapters/drizzle"
+import { hashPassword, verifyPassword } from "better-auth/crypto"
+import { admin, openAPI } from "better-auth/plugins"
 import db from "@/database/client"
 import { env } from "@/lib/env"
 import { sendEmail } from "@/mail/client"
 import { ResetPasswordTemplate } from "@/mail/templates/reset-password-template"
 import { VerificationEmailTemplate } from "@/mail/templates/verification-email-template"
-import { betterAuth } from "better-auth"
-import { drizzleAdapter } from "better-auth/adapters/drizzle"
-import { hashPassword, verifyPassword } from "better-auth/crypto"
-import { admin, openAPI } from "better-auth/plugins"
 
 const trustedOrigins = Array.from(
   new Set([env.BETTER_AUTH_URL, ...env.CORS_ORIGIN])
